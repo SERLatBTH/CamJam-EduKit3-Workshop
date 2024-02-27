@@ -60,7 +60,9 @@ if [ ! -d ~/Desktop/runonboot ]; then
     echo "function runonrobot() {
         if ssh -q -o ConnectTimeout=1 -t \"$1\" 'mkdir -p run; exit';
         then
-            scp \"\$1\" \"$1:~/run\"
+            echo \"RobotPi is connected, copying the file to the robot...\"
+            scp -q \"\$1\" \"$1:~/run\"
+            echo \"Running the file on the robot...\"
             ssh -t \"$1\" \"python3 ~/run/\$1; exit\"
         else
             echo \"RobotPi failed to connect, running the file locally...\"
