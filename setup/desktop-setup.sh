@@ -77,4 +77,6 @@ if [ ! -d ~/Desktop/runonboot ]; then
 
     # Source the bashrc to apply the changes
     source ~/.bashrc
+
+    sudo apt-get install -y code
 fi
