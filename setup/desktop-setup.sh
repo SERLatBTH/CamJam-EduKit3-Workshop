@@ -70,9 +70,9 @@ if [ ! -d ~/Desktop/runonboot ]; then
         fi
     }" >> ~/.bashrc
 
-    # Add "if there are any files in runonboot folder, then open a new terminal and run the python files on boot" to the bashrc
+    # Add "if there are any files in runonboot folder, execute them" to the bashrc
     echo "if [ -n \"\$(ls -A ~/Desktop/runonboot)\" ]; then
-        gnome-terminal -- python3 ~/Desktop/runonboot/*
+        python3 ~/Desktop/runonboot/*
     fi" >> ~/.bashrc
 
     # Source the bashrc to apply the changes
