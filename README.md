@@ -31,9 +31,9 @@ Setting up the sending Pi requires more steps. We use the same [Raspberry Pi Ima
 4. Disable the SSH setting in the other tab.
 5. Flash the storage and when it is done connect a screen and log in.
 6. Download or Transfer this git repository to the DesktopPi.
-7. Go into `setup` directory and run ```chmod +x desktop-setup.sh; sudo ./desktop-setup.sh pi1``` It will install VS Code and add an alias to `.bashrc` named "runonrobot" that will connect to pi1 and make it run the selected python file.
+7. Go into `setup` directory and run ```chmod +x desktop-setup.sh; ./desktop-setup.sh pi1``` It will install VS Code and add a function to `.bashrc` named "runonrobot" that will connect to pi1 and make it run the selected python file.
 8. The script will ask you what ip address pi1 has, type in the answer recieved in step 7 of RobotPi above.
-9. As a backup, if SSH would fail for whatever reason, there will be a "runonrobot" folder on the desktop that will open a terminal and execute any python file on boot. This is to ensure our workshop participants can still run code by just swapping the sd card between DesktopPi and RobotPi.
+9. As a backup, if SSH would fail for whatever reason, there will be a "runonboot" folder on the desktop that will open a terminal and execute any python file on boot. This is to ensure our workshop participants can still run code by just swapping the sd card between DesktopPi and RobotPi.
 
 ## Building the robot
 
@@ -41,4 +41,5 @@ Setting up the sending Pi requires more steps. We use the same [Raspberry Pi Ima
 
 
 # TODO
-- The alias command "runonrobot" should transfer the selected file to the desktop folder with the same name if the SSH connection is lost.
+- The DesktopPi should open visual studio code on boot in the correct directory with all files.
+- Update the command instruction on DesktopPi to type y and/or yes when it asks to, this is to make ssh easier
