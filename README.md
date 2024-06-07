@@ -27,7 +27,7 @@ Setting up the sending Pi requires more steps. We use the same [Raspberry Pi Ima
 
 1. Select the default Raspberry OS (typically the top most one) and select a storage to flash to.
 2. In the customizable settings, remove the hostname and change the username/password to desktop1, desktop2, etc for each corresponding RobotPi.
-3. Configure wireless LAN and locale settings to be the same as th ecorresponding RobotPis.
+3. Configure wireless LAN and locale settings to be the same as the corresponding RobotPis.
 4. Disable the SSH setting in the other tab.
 5. Flash the storage and when it is done connect a screen and log in.
 6. Download or Transfer this git repository to the DesktopPi.
