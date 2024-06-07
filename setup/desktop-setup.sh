@@ -41,7 +41,7 @@ ssh-keygen;
 ssh-copy-id "$1"@"$ip_address";
 
 # Check if the robot is connected
-if ssh -q -t "$1" 'mkdir -p run; exit';
+if ssh -q -t "$1"@"$ip_address" 'mkdir -p run; exit';
 then
     echo "RobotPi is connected"
 else
@@ -58,12 +58,12 @@ if [ ! -d ~/Desktop/runonboot ]; then
     # The function will copy the file to the robot and execute it
     # If the robot fails to connect, it will execute the file locally and put it in the runonboot folder
     echo "function runonrobot() {
-        if ssh -q -o ConnectTimeout=1 -t \"$1\" 'mkdir -p run; exit';
+        if ssh -q -o ConnectTimeout=1 -t \"$1\"@\"$ip_address\" 'mkdir -p run; exit';
         then
             echo \"RobotPi is connected, copying the file to the robot...\"
-            scp -q \"\$1\" \"$1:~/run\"
+            scp -q \"\$1\" \"$1@$ip_address:~/run\"
             echo \"Running the file on the robot...\"
-            ssh -t \"$1\" \"python3 ~/run/\$1; exit\"
+            ssh -t \"$1@$ip_address\" \"python3 ~/run/\$(basename \$1); exit\"
         else
             echo \"RobotPi failed to connect, running the file locally...\"
             rm -rf ~/Desktop/runonboot/*
