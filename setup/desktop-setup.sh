@@ -24,24 +24,27 @@
 if [ -z "$1" ]
 then
     echo "No name of RobotPi supplied"
+fi
+if [ -z "$2" ]
+then
+    echo "No ip address of RobotPi supplied"
+    echo "desktop-setup.sh [name] [ip]"
     exit 1
 fi
 
-# Ask to provide an ip address of the robot
-echo "Please provide the ip address of the robot: $1"
-# shellcheck disable=SC2162
-read ip_address
+name=$1
+ip=$2
 
 # Remove any prior ssh key associated with the robot, silently
-ssh-keygen -R "$1" 2> /dev/null
-ssh-keygen -R "$ip_address" 2> /dev/null
+ssh-keygen -R "$name" 2> /dev/null
+ssh-keygen -R "$ip" 2> /dev/null
 
 # Genereate a new ssh key for the robot and copy it to the robot
 ssh-keygen;
-ssh-copy-id "$1"@"$ip_address";
+ssh-copy-id "$name"@"$ip";
 
 # Check if the robot is connected
-if ssh -q -t "$1"@"$ip_address" 'mkdir -p run; exit';
+if ssh -q -t "$name"@"$ip" 'mkdir -p run; exit';
 then
     echo "RobotPi is connected"
 else
@@ -58,12 +61,12 @@ if [ ! -d ~/Desktop/runonboot ]; then
     # The function will copy the file to the robot and execute it
     # If the robot fails to connect, it will execute the file locally and put it in the runonboot folder
     echo "function runonrobot() {
-        if ssh -q -o ConnectTimeout=1 -t \"$1\"@\"$ip_address\" 'mkdir -p run; exit';
+        if ssh -q -o ConnectTimeout=1 -t \"$name\"@\"$ip\" 'mkdir -p run; exit';
         then
             echo \"RobotPi is connected, copying the file to the robot...\"
-            scp -q \"\$1\" \"$1@$ip_address:~/run\"
+            scp -q \"\$1\" \"$name@$ip:~/run\"
             echo \"Running the file on the robot...\"
-            ssh -t \"$1@$ip_address\" \"python3 ~/run/\$(basename \$1); exit\"
+            ssh -t \"$name@$ip\" \"python3 ~/run/\$(basename \$1); exit\"
         else
             echo \"RobotPi failed to connect, running the file locally...\"
             rm -rf ~/Desktop/runonboot/*
