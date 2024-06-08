@@ -53,11 +53,16 @@ else
 fi
 
 # if not installed before
+if [ ! -f ~/.bashrc-camjam ]; then
+    touch ~/.bashrc-camjam
+    echo "source ~/.bashrc-camjam" >> ~/.bashrc
+fi
 if [ ! -d ~/Desktop/runonboot ]; then
     # Create a runonboot folder in the desktop directory
     mkdir -p ~/Desktop/runonboot
+fi
 
-    # Append function to local bashrc
+    # Append function to bashrc-camjam
     # The function will copy the file to the robot and execute it
     # If the robot fails to connect, it will execute the file locally and put it in the runonboot folder
     echo "function runonrobot() {
@@ -73,15 +78,14 @@ if [ ! -d ~/Desktop/runonboot ]; then
             cp \"\$1\" ~/Desktop/runonboot/
             python3 ~/Desktop/runonboot/\$1
         fi
-    }" >> ~/.bashrc
+    }" > ~/.bashrc-camjam
 
     # Add "if there are any files in runonboot folder, execute them" to the bashrc
     echo "if [ -n \"\$(ls -A ~/Desktop/runonboot)\" ]; then
         python3 ~/Desktop/runonboot/*
-    fi" >> ~/.bashrc
+    fi" > ~/.bashrc-camjam
 
     # Source the bashrc to apply the changes
     source ~/.bashrc
 
     sudo apt-get install -y code
-fi
