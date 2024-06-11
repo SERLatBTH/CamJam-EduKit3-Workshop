@@ -90,6 +90,7 @@ fi" >> ~/.bashrc_camjam
 
 # Source the bashrc to apply the changes
 source ~/.bashrc
+source ~/.bashrc_camjam
 
 echo "Installing VSCode..."
 sudo apt-get install -y code
