@@ -53,35 +53,43 @@ else
 fi
 
 # if not installed before
+if [ ! -f ~/.bashrc_camjam ]; then
+    touch ~/.bashrc_camjam
+    echo "if [ -f ~/.bashrc_camjam ]; then
+    . ~/.bashrc_camjam
+fi
+" >> ~/.bashrc
+fi
 if [ ! -d ~/Desktop/runonboot ]; then
     # Create a runonboot folder in the desktop directory
     mkdir -p ~/Desktop/runonboot
-
-    # Append function to local bashrc
-    # The function will copy the file to the robot and execute it
-    # If the robot fails to connect, it will execute the file locally and put it in the runonboot folder
-    echo "function runonrobot() {
-        if ssh -q -o ConnectTimeout=1 -t \"$name\"@\"$ip\" 'mkdir -p run; exit';
-        then
-            echo \"RobotPi is connected, copying the file to the robot...\"
-            scp -q \"\$1\" \"$name@$ip:~/run\"
-            echo \"Running the file on the robot...\"
-            ssh -t \"$name@$ip\" \"python3 ~/run/\$(basename \$1); exit\"
-        else
-            echo \"RobotPi failed to connect, running the file locally...\"
-            rm -rf ~/Desktop/runonboot/*
-            cp \"\$1\" ~/Desktop/runonboot/
-            python3 ~/Desktop/runonboot/\$1
-        fi
-    }" >> ~/.bashrc
-
-    # Add "if there are any files in runonboot folder, execute them" to the bashrc
-    echo "if [ -n \"\$(ls -A ~/Desktop/runonboot)\" ]; then
-        python3 ~/Desktop/runonboot/*
-    fi" >> ~/.bashrc
-
-    # Source the bashrc to apply the changes
-    source ~/.bashrc
-
-    sudo apt-get install -y code
 fi
+
+# Append function to bashrc_camjam
+# The function will copy the file to the robot and execute it
+# If the robot fails to connect, it will execute the file locally and put it in the runonboot folder
+echo "function runonrobot() {
+    if ssh -q -o ConnectTimeout=1 -t \"$name\"@\"$ip\" 'mkdir -p run; exit';
+    then
+        echo \"RobotPi is connected, copying the file to the robot...\"
+        scp -q \"\$1\" \"$name@$ip:~/run\"
+        echo \"Running the file on the robot...\"
+        ssh -t \"$name@$ip\" \"python3 ~/run/\$(basename \$1); exit\"
+    else
+        echo \"RobotPi failed to connect, running the file locally...\"
+        rm -rf ~/Desktop/runonboot/*
+        cp \"\$1\" ~/Desktop/runonboot/
+        python3 ~/Desktop/runonboot/\$1
+    fi
+}" > ~/.bashrc_camjam
+
+# Add "if there are any python files in runonboot folder, execute them" to the bashrc
+echo "if [ -f ~/Desktop/runonboot/*.py ]; then
+python3 ~/Desktop/runonboot/*.py
+fi" >> ~/.bashrc_camjam
+
+# Source the bashrc to apply the changes
+source ~/.bashrc
+
+echo "Installing VSCode..."
+sudo apt-get install -y code
