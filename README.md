@@ -38,7 +38,11 @@ Setting up the sending Pi requires more steps. We use the same [Raspberry Pi Ima
 ## Building the robot
 
 ## Coding the robot
+When the coding workshop begins, have the Visual Studio Code open with the folder [workshop](./workshop). Right-click on [instruction-handout](/workshop/instructions-handout.md) and select `Open Preview`. Open [helloworld.py](/workshop/helloworld.py) as well. Rearrange so that the instructions and python file are viewed side by side. Also add a terminal for them to run the command.
 
+Let the participants follow the instruction handout until they have a working obstacle avoiding robot, when they are done let them write a conclusion report into [prototype-report](/workshop/prototype-report.md).
+
+When there are 10 to 5 minutes left of the workshop, get their attention and ask each group what was problematic and what their ideas for improvement are. Start with the groups that have completed the report, then confirm with the groups who didn't get that far.
 
 # TODO
 - The DesktopPi should open visual studio code on boot in the correct directory with all files.
