@@ -93,4 +93,5 @@ source ~/.bashrc
 source ~/.bashrc_camjam
 
 echo "Installing VSCode..."
+sudo apt-get update
 sudo apt-get install -y code
