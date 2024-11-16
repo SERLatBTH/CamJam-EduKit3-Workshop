@@ -29,9 +29,10 @@ We can use **variables** in python to store information. Think of it like a cont
 	`print(name)` You should see your names on the screen now. 
 #### Counting 
 A powerful feature in programming is repetition, which makes computers great at counting. We will write a new section under your print commands called a "while loop". 
-- Create a new line under your print commands and type:
-	`count =0` We defined a new variable **count**
-	`While:True` and then press enter and press the tab key
+- Create a new line under your print commands and type:  
+	`count = 0` We defined a new variable **count**  
+	then on a new line (under the count variable):  
+	`while True:` and then press enter and press the tab key
 - Everything which is indented with tab under this line will now be repeated. To stop a running program you can click on the trashcan icon on the terminal window
 - With the `count` variable we can make the pi count for us and by combining it with the `print()` we can get it to tell us how many time it has counted!
 	- On the new line write: `count = count +1` This will increase the count variable by one.
@@ -49,7 +50,7 @@ Let's slow the program down a bit, so that it counts seconds instead. To do that
 <br>
 <br> <br>
 ### Functions and if-statements
-What if we only wanted to print count when the number is even? How can we make the program know when an number is even or not? To do that, we will define our very own command instead called a function. It's a block of code that performs a specific task. Imagine you're baking cookies – instead of writing out the recipe every time you want to bake, you create a recipe (function) with instructions for baking cookies, and whenever you want cookies, you just use that recipe.
+What if we only wanted to print count when the number is even? How can we make the program know when an number is even or not? To do that, we will define our very own command instead called a function. It's a block of code that performs a specific task. Imagine you're baking cookies – instead of writing out the steps every time you want to bake, you create a recipe (function) with instructions for baking cookies, and whenever you want cookies, you just use that recipe.
 - At the top of the file, under `import time` write the following code:
 ```python
 def isEven(count): 
@@ -81,7 +82,7 @@ While True:
 Now that you have gained a basic understanding of python, let us try out the robot. In this part you will learn how to make the robot go forwards, backwards, turn left and turn right. You will also learn how to use the distance sensor as well as how to control the speed of the robot. You will be given step-by step instructions, and tasks to complete and a final task involving making the robot avoid obstacles!
 
 ### Task 1: Controlling the motors
-- Make a new file in Vs code: Click on "file" in the upper corner -> "new file". Then write "Motors.py" and press ENTER. Save the file on the desktop.
+- Make a new file in Vs code: Click on "file" in the upper corner -> "new file". Then write `"Motors.py"` and press ENTER. Save the file on the desktop.
 - In the file we will import the time library again and a new library called the GPIOZero library,  and from it we will import the `CamJamKitRobot` object. Write the following code and make sure you understand what it does:  
 ```python 
 import time  # Import the Time library
@@ -97,7 +98,7 @@ robot.stop()
  - The third line will start our robot
  - robot.forward() will  turn the motors on and make the robot go forward, we then use the time.sleep(1) command to make it go forwards
  - robot.stop() will turn off the motors and make the robot stop. 
- - Now try it out! It should start going forward for 1 second. 
+ - Now try it out by writing `runonrobot Motors.py` in the terminal. It should start going forward for 1 second. 
 
 ### Task 2: driving and turning
 - Congrats, you made the robot go forwards. Now lets try to make it turn and go backwards.
@@ -132,7 +133,7 @@ robot.stop() #Turn the motor off
 - We have made a new variable called **speed** which we will use to set the speed of the motors. In all commands which make the robot move we have added **speed** in the parentheses, which will make the robots move at the specified speed. Try running the code now. It should go slower. Try changing the speed too!
 	
 ### Task 4: Using the distance sensor
-Now that you have used the motors for a bit, let's try using the ultrasonic distance sensor. But before then, we will explain how the sensor works. When voltage is applied to the **Trig pin** on the sensor, it sends a ultrasonic sound from its speaker which is then recived from its reciever when the sound travels back. The calculated distance is then sent from the **echo pin**. Write the following code to test the sensor in a new file and name it "Distance.py":
+Now that you have used the motors for a bit, let's try using the ultrasonic distance sensor. But before then, we will explain how the sensor works. When voltage is applied to the **Trig pin** on the sensor, it sends a ultrasonic sound from its speaker which is then recived from its reciever when the sound travels back. The calculated distance is then sent from the **echo pin**. Write the following code to test the sensor in a new file and name it `"Distance.py"`:
 ```python
 import time #Import the Time library
 from gpiozero import DistanceSensor #Import GPIO Zero Library
@@ -155,7 +156,7 @@ except KeyboardInterrupt:
 - the line after that will start our sensor, with our specified pins. 
 - The **try** and **except** lines will make it possible to stop the program with CTRL+C. Dont worry if you dont fully understand. 
 - In the while loop, we assign the variable **distance** the measured distance from the sensor and the print it using print()
-- Now try running the file! To test that the sensor gives correct and different readings, try putting your hand in front of the sensor at various distances. 
+- Now try running the file by writing `runonrobot Distance.py` in the terminal. To test that the sensor gives correct and different readings, try putting your hand in front of the sensor at various distances. 
 ### Task 5:  Obstacle Avoidance Robot
 You have now learned everything you need to make your own obstacle avoidance robot! You will be given some code beforehand to help you start out, but the final result is up to you! Edit the file so that it looks like this: 
 
