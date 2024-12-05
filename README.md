@@ -38,7 +38,12 @@ Setting up the sending Pi requires more steps. We use the same [Raspberry Pi Ima
 ## Building the robot
 
 ## Coding the robot
-When the coding workshop begins, have the Visual Studio Code open with the folder [workshop](./workshop). Right-click on [instruction-handout](workshop/instruction-handout.md) and select `Open Preview`. Open [helloworld.py](/workshop/helloworld.py) as well. Rearrange so that the instructions and python file are viewed side by side. Also add a terminal for them to run the command.
+When the coding workshop begins, have the Visual Studio Code open with one of the workshop folders:
+
+- `workshop` to teach [problem-solving a robot](./workshop/instruction-handout.md)
+- `workshop-obstacle` to teach [coding a robot](./workshop-obstacle/instructions-en.md)
+
+Rearrange so that the instructions and python file are viewed side by side. Also add a terminal for them to run the command.
 
 The final task of the workshop has three issues: 1. Variable `speed` is set to `1.0`, 2. A `time.sleep(1)` before the if statement that is completely unnecessary, 3. The last `time.sleep()` has `speed` as an argument rather than `1.0` second.
 

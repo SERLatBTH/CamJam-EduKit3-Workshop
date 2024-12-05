@@ -5,6 +5,7 @@
 # - ssh into robotpi
 # - delete run folder on robotpi
 # - copy $1 into robotpi
+# - copy library.py into robotpi (if exists)
 # - execute robotpi
 # - exit ssh
 
@@ -73,12 +74,18 @@ echo "function runonrobot() {
     then
         echo \"RobotPi is connected, copying the file to the robot...\"
         scp -q \"\$1\" \"$name@$ip:~/run\"
+        if [ -f \"library.py\" ]; then
+            scp -q \"library.py\" \"$name@$ip:~/run\"
+        fi
         echo \"Running the file on the robot...\"
         ssh -t \"$name@$ip\" \"python3 ~/run/\$(basename \$1); exit\"
     else
         echo \"RobotPi failed to connect, running the file locally...\"
         rm -rf ~/Desktop/runonboot/*
         cp \"\$1\" ~/Desktop/runonboot/
+        if [ -f \"library.py\" ]; then
+            cp \"library.py\" ~/Desktop/runonboot/
+        fi
         python3 ~/Desktop/runonboot/\$1
     fi
 }" > ~/.bashrc_camjam

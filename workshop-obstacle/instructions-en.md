@@ -1,0 +1,44 @@
+# Robot Obstacle Course Workshop
+
+[Ändra till svenska](instructions-sv.md)
+
+Today we're going to code a robot to navigate through an obstacle course.
+
+Coding is like giving your robot a set of instructions to follow. We'll be using three panels to do this:
+
+- **Left Panel: The Code File.** This is where you'll write your instructions for the robot.
+- **Bottom Panel: Chat Box with the Robot.** Here, you'll send commands to the robot.
+- **Right Panel: Cheat Sheet.** This has all the information you need.
+
+## Robot Chat Box
+
+We'll use the chat to send our code to the robot. The robot will read your instructions and follow them.
+
+To send your code to the robot, type this in the chat:
+
+```plaintext
+runonrobot code.py
+```
+
+If the robot keeps going and you need it to stop, press `CTRL+C` on your keyboard to make it stop right away.
+
+## Instructions
+
+Here are all the commands you can give the robot:
+
+- `power`: How strong the robot moves (from 0% to 100%).
+- `duration`: How long the robot should perform the action (in seconds). Remember, use a `.` for decimal points in code.
+
+```python
+robot.forward   (power=50, duration=2.0)
+
+robot.backward  (power=20, duration=5)
+
+robot.stop      (duration=3.4)
+
+robot.right     (power=100, duration=0.1)
+
+robot.left      (power=20, duration=10)
+
+robot.distance  () # The robot will tell you how far it is from something
+```
