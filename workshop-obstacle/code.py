@@ -1,18 +1,14 @@
-import library as robot
+import library
+robot = library.Robot()
 
-robot.mirror(True)
+robot.mirror(True) # Ändra till 'False' för att spegelvända robotens rotationer
 
-robot.forward(power=50, duration=2, distance=40)
-robot.left(power=50, duration=0.1)
-robot.forward(power=50, duration=2, distance=40)
-robot.left(power=50, duration=0.1)
-robot.forward(power=50, duration=2, distance=40)
-robot.stop(duration=0.6)
+robot.go.forward(power=50, duration=2)
+robot.rotate.left(power=50, duration=0.1)
+robot.go.forward(70, 2)
+robot.rotate.left(50, 0.1)
+robot.go.backward(50, 1)
+robot.pause(1)
+robot.rotate.right(80, 1000)
 
-robot.backward(power=40, duration=0.6)
-robot.right(power=70, duration=0.1)
-robot.forward(power=70, duration=2)
-robot.right(power=100, duration=0.1)
-robot.forward(power=100, duration=0.2)
-robot.right(power=100, duration=1000)
-robot.stop(duration=0.6)
+

@@ -30,15 +30,15 @@ Here are all the commands you can give the robot:
 - `duration`: How long the robot should perform the action (in seconds). Remember, use a `.` for decimal points in code.
 
 ```python
-robot.forward   (power=50, duration=2.0)
+robot.go.forward(power=80, duration=1.4)
 
-robot.backward  (power=20, duration=5)
+robot.go.backward(power=80, duration=1.4)
 
-robot.stop      (duration=3.4)
+robot.rotate.left(power=50, duration=0.2)
 
-robot.right     (power=100, duration=0.1)
+robot.rotate.right(power=50, duration=0.1)
 
-robot.left      (power=20, duration=10)
+robot.pause(duration=1)
 
-robot.distance  () # The robot will tell you how far it is from something
+robot.see.distance() # The robot will tell you how far it is from something
 ```

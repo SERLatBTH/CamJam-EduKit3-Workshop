@@ -30,15 +30,15 @@ Här är alla kommandon du kan ge roboten:
 - `duration`: Hur länge roboten ska utföra handlingen (i sekunder). Kom ihåg att använda `.` för decimaler i koden.
 
 ```python
-robot.forward   (power=50, duration=2.0)
+robot.go.forward(power=80, duration=1.4)
 
-robot.backward  (power=20, duration=5)
+robot.go.backward(power=80, duration=1.4)
 
-robot.stop      (duration=3.4)
+robot.rotate.left(power=50, duration=0.2)
 
-robot.right     (power=100, duration=0.1)
+robot.rotate.right(power=50, duration=0.1)
 
-robot.left      (power=20, duration=10)
+robot.pause(duration=1)
 
-robot.distance  () # Roboten talar om hur långt den är från något
+robot.see.distance() # Roboten talar om hur långt den är från något
 ```
