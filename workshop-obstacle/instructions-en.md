@@ -42,3 +42,15 @@ robot.pause(duration=1)
 
 robot.see.distance() # The robot will tell you how far it is from something
 ```
+
+# Your Task
+
+### 1. Make the robot go forward. 
+- What happens when you do this?
+### 2. Make the robot rotate left. 
+- Does it rotate to the left?
+- (If it does, set `mirror(False)` to `True`)
+### 3. Make the robot rotate 90 degrees.
+- Are there any problems rotating 90 degrees to the left?
+- Same problems rotating right?
+### 4. Go through the maze and knockout the rat kings from their throne!

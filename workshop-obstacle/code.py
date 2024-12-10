@@ -1,7 +1,7 @@
 import library
 robot = library.Robot()
 
-robot.mirror(True) # Ändra till 'False' för att spegelvända robotens rotationer
+robot.mirror(False) # Ändra till 'True' för att spegelvända robotens rotationer
 
 robot.go.forward(power=50, duration=2)
 robot.rotate.left(power=50, duration=0.1)

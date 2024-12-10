@@ -42,3 +42,15 @@ robot.pause(duration=1)
 
 robot.see.distance() # Roboten talar om hur långt den är från något
 ```
+
+# Din Uppgift
+
+### 1. Få roboten att gå framåt.
+- Vad händer när du gör detta?
+### 2. Få roboten att rotera vänster.
+- Roterar den åt vänster?
+- (Om den gör det, sätt `mirror(False)` till `True`)
+### 3. Få roboten att rotera 90 grader.
+- Finns det några problem med att rotera 90 grader åt vänster?
+- Är det samma problem med höger?
+### 4. Gå igenom labyrinten och slå ut råttkungarna från deras troner!
